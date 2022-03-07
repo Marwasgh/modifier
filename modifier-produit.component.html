@@ -1,0 +1,43 @@
+ <div>
+<div class="form-style-10" *ngIf="produitForm._id">
+  <div class="card mt-4">
+  <div class="card-header">
+      <h2 class="text-center">Modifier Produit :</h2>
+  </div>
+  
+      <div class="card-body ">
+          <div class="row">
+              <div class="col-4 c">
+                
+                      <label for="nom">Nom :</label>
+                      <input type="text" name="nom" [(ngModel)]="produitForm.nom" class="form-control" />
+                
+                      <label for="description">description </label>
+                      <input type="text" name="description" [(ngModel)]="produitForm.description"
+                          class="form-control" />
+    
+                      <label for="prix">prix</label>
+                      <input type="number" name="prix" [(ngModel)]="produitForm.prix" class="form-control" />
+       <br>
+                      <label for="name">Categorie: </label>
+                      <select id="categorie" name="categorie" [(ngModel)]="produitForm.categorie" ngDefaultControl>
+                        <option value="none" selected="" disabled="">Categorie</option>
+                        <option [ngValue]="categorie._id" *ngFor=" let categorie of categories ">{{categorie.nom}}</option>
+                      </select>
+                   
+                  </div>
+               
+                <div class="col-md-12 text-center">
+                    <br>
+                          <button type="submit" (click)="updateProduit()"  class="btn bg-success text-white btn-lg">Modifier</button>
+                
+                </div>
+              </div>
+          </div>
+          <div>
+   <div *ngIf="!produitForm._id">
+    <br />
+      <p> Impossible d'accéder à ce produit...</p>
+  </div>
+</div>
+

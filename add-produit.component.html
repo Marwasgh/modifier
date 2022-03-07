@@ -1,0 +1,44 @@
+<app-navbar1></app-navbar1>
+<div class="card mt-4">
+  <div class="card-header">
+      <h2 class="text-center">Ajouter produit</h2>
+  </div>
+  
+      <div class="card-body ">
+          <div class="row">
+              <div class="col-4 c">
+                
+                      <label for="nom">Nom <span class="important">*</span></label>
+                      <input type="text" name="nom" [(ngModel)]="productForm.nom" class="form-control" />
+                
+                      <label for="description">description <span class="important">*</span></label>
+                      <input type="text" name="description" [(ngModel)]="productForm.description"
+                          class="form-control" />
+    
+                      <label for="prix">prix <span class="important">*</span></label>
+                      <input type="number" name="prix" [(ngModel)]="productForm.prix" class="form-control" />
+       
+                      <label for="name">Category: <span class="important">*</span></label>
+                      <select id="categorie" name="categorie" [(ngModel)]="productForm.categorie" ngDefaultControl
+                          class="form-control">
+                          <option value="none" selected="" disabled="">Category</option>
+                          <option [ngValue]="category._id" *ngFor=" let category of categories ">{{category.nom}}
+                          </option>
+                      </select>
+               
+                 
+                          <label for="image">URL Image:</label>
+                          <input type="file" name="image" [(ngModel)]="productForm.image" (change)="loadImage($event)"
+                              class="form-control" />
+                   
+                  </div>
+               
+                <div class="col-md-12 text-center">
+                    <br>
+                          <button (click)="addPro()" class="btn bg-success text-white btn-lg">Ajouter</button>
+                
+                </div>
+              </div>
+          </div>
+ 
+</div>
